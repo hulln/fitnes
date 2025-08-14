@@ -7,6 +7,7 @@ export async function POST(req: NextRequest) {
   const { email, name, date, time } = await req.json();
 
   try {
+    // Send to user
     await resend.emails.send({
       from: 'noreply@resend.dev',
       to: email,
@@ -33,6 +34,22 @@ export async function POST(req: NextRequest) {
             <b>Kontejnerska Telovadnica Crew</b> 🏋️‍♂️<br/>
             <span style="font-size:1.2em;">#NoExcuses #BalkanStrength</span>
           </p>
+        </div>
+      `,
+    });
+
+    // Send to admin
+    await resend.emails.send({
+      from: 'noreply@resend.dev',
+      to: 'nivea.miki@gmail.com',
+      subject: `NOVA REZERVACIJA: ${name} (${date} ob ${time})`,
+      html: `
+        <div style="font-family:Arial,sans-serif; background:#18181b; color:#fff; padding:32px; border-radius:16px;">
+          <h1 style="font-size:2rem; margin-bottom:0.5em;">Nova rezervacija!</h1>
+          <p><b>Ime:</b> ${name}<br/>
+          <b>Email:</b> ${email}<br/>
+          <b>Datum:</b> ${date}<br/>
+          <b>Termin:</b> ${time}</p>
         </div>
       `,
     });
