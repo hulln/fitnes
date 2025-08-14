@@ -42,7 +42,7 @@ export default function SectionCenik() {
 
       <div className="mt-10 text-center">
         <a
-          href="#rezervacija"
+          href="/book"
           className="bg-green-600 hover:bg-green-700 transition text-white font-bold py-3 px-6 rounded-full text-lg"
         >
           📅 Rezerviraj svoj termin!
