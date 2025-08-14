@@ -10,7 +10,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="sl" suppressHydrationWarning>
-      <body className={`${inter.className} bg-[#0f0f23] text-white`}>
+  <body style={{ background: 'var(--background)', color: 'var(--foreground)' }}>
         <Providers>{children}</Providers>
       </body>
     </html>
