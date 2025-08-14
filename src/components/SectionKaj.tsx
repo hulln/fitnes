@@ -17,7 +17,7 @@ export default function SectionKaj() {
 
       <div className="mt-6 flex flex-wrap gap-3 justify-center text-sm text-white">
         <span className="px-4 py-2 rounded-full border border-gray-700 bg-gray-800">
-          🏆 Moto: "Če gre v kontejner, gre v rutino"
+          🏆 Moto: &quot;Če gre v kontejner, gre v rutino&quot;
         </span>
         <span className="px-4 py-2 rounded-full border border-gray-700 bg-gray-800">
           📏 Velikost: ravno prav, dokler dihaš plitvo
