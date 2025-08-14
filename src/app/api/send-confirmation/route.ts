@@ -4,7 +4,7 @@ import { Resend } from 'resend';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
-  const { email, name, date, time } = await req.json();
+  const { email, name, date, time, payment, message } = await req.json();
 
   try {
     // Send to user
@@ -46,10 +46,14 @@ export async function POST(req: NextRequest) {
       html: `
         <div style="font-family:Arial,sans-serif; background:#18181b; color:#fff; padding:32px; border-radius:16px;">
           <h1 style="font-size:2rem; margin-bottom:0.5em;">Nova rezervacija!</h1>
-          <p><b>Ime:</b> ${name}<br/>
-          <b>Email:</b> ${email}<br/>
-          <b>Datum:</b> ${date}<br/>
-          <b>Termin:</b> ${time}</p>
+          <p>
+            <b>Ime:</b> ${name}<br/>
+            <b>Email:</b> ${email}<br/>
+            <b>Datum:</b> ${date}<br/>
+            <b>Termin:</b> ${time}<br/>
+            <b>Plačilo:</b> ${payment || '-'}<br/>
+            <b>Sporočilo:</b> ${message ? message.replace(/\n/g, '<br/>') : '-'}
+          </p>
         </div>
       `,
     });
